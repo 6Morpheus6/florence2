@@ -31,21 +31,14 @@ module.exports = {
           "FLASH_ATTENTION_SKIP_CUDA_BUILD": "TRUE"
         },
         message: [
-          "pip install gradio==4.44.1 devicetorch",
-          "pip install git+https://github.com/peanutcocktail/transformers.git",
+          "uv pip install gradio==4.44.1 devicetorch pydantic==2.10.6",
+          "uv pip install git+https://github.com/peanutcocktail/transformers.git",
           //"pip install {{gpu == 'nvidia' ? 'transformers' : 'git+https://github.com/peanutcocktail/transformers.git'}}",
-          "pip install -r requirements.txt",
+          "uv pip install -r requirements.txt",
           //"{{gpu === 'nvidia' ? 'pip install flash-attn --no-build-isolation' : ''}}"
         ]
       }
     },
-    //  Uncomment this step to add automatic venv deduplication (Experimental)
-    //{
-    //  method: "fs.link",
-    //  params: {
-    //    venv: "app/env"
-    //  }
-    //},
     {
       method: "notify",
       params: {
